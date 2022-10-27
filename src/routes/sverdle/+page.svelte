@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { confetti } from '@neoconfetti/svelte';
 	import { enhance } from '$app/forms';
-	import type { PageData, ActionData } from './$types';
+	import { confetti } from '@neoconfetti/svelte';
+	import '../../app.postcss';
+	import Header from '../Header.svelte';
+	import '../styles.css';
+	import type { ActionData, PageData } from './$types';
 
 	export let data: PageData;
 
@@ -46,9 +49,7 @@
 	 */
 	function update(event: MouseEvent) {
 		const guess = data.guesses[i];
-		const key = (event.target as HTMLButtonElement).getAttribute(
-			'data-key'
-		);
+		const key = (event.target as HTMLButtonElement).getAttribute('data-key');
 
 		if (key === 'backspace') {
 			data.guesses[i] = guess.slice(0, -1);
