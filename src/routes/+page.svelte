@@ -11,7 +11,7 @@
 <section class="p-5">
 	<button class="btn btn-primary">Test daisyUI</button>
 
-	<h1>Cool site</h1>
+	<h1 class="p-2">Cool site</h1>
 
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

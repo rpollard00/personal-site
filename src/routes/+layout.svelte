@@ -1,17 +1,29 @@
-<script>
+<script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
+	import { onMount } from 'svelte';
+	import { themeChange } from 'theme-change';
 	import '../app.postcss';
 
-	let menuVisible = false;
+	let selectedTheme = 0;
+	const themes = ['light', 'dark', 'retro', 'cyberpunk'];
 
-	const toggleNav = () => {
-		menuVisible = !menuVisible;
+	onMount(() => {
+		themeChange(false);
+	});
+
+	const setTheme = (event: any) => {
+		//console.log('selectedTheme', selectedTheme);
+		if (selectedTheme < themes.length - 1) {
+			selectedTheme += 1;
+		} else {
+			selectedTheme = 0;
+		}
 	};
 </script>
 
-<div class="app flex flex-col">
+<div data-theme={themes[selectedTheme]} class="app flex flex-col  h-screen">
 	<header>
-		<Navbar />
+		<Navbar on:changeTheme={setTheme} />
 	</header>
 
 	<main class="flex flex-col grow">
