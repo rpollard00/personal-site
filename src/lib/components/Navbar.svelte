@@ -51,12 +51,11 @@
 				class="fixed top-[4rem] right-2 z-10 mt-3 p-2 shadow-xl bg-slate-600 rounded-md w-52 text-slate-100"
 			>
 				<MenuItem url="/about" text="About Me"/>
-				<MenuItem url="blog" text="Blog" />
-				<li><a>Projects</a></li>
-				<li><a>Contact</a></li>
-				<li>
-					<button on:click={changeTheme} class="btn btn-outline">Theme</button>
-				</li>
+				<MenuItem url="/blog" text="Blog" />
+				<MenuItem url="/contact" text="Contact" />
+				<MenuItem url="/projects" text="Projects" />
+				<MenuItem url="/resume" text="Resume" />
+				<MenuItem url="/login" text="Login" />
 			</ul>
 		{/if}
 	</div>
