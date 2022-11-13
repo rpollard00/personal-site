@@ -2,6 +2,7 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
+	
 	import '../app.postcss';
 
 	let selectedTheme = 0;
