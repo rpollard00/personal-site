@@ -8,11 +8,14 @@ interface handleInterface {
 }
 
 export const handle = async ({ event, resolve }: handleInterface) => {
-  // console.log("Event", event)
-  console.log("Resolve", resolve)
   event.locals.pocketbase = new PocketBase(PB_URL);
-
   event.locals.pocketbase.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
+
+  if (event.locals.pocketbase.authStore.isValid) {
+    event.locals.user = JSON.parse(JSON.stringify({ ...event.locals.pocketbase.authStore.model }))
+  } else {
+    event.locals.user = undefined;
+  }
 
   const response = await resolve(event);
 

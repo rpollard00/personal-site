@@ -2,7 +2,9 @@
 	import { clickOutside } from '$lib/utilities/clickOutside';
 	import { createEventDispatcher } from 'svelte';
 	import MenuItem from './MenuItem.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade } from 'svelte/transition';	
+	import { dataset_dev } from 'svelte/internal';
+	export let user;
 
 	const dispatch = createEventDispatcher();
 
@@ -18,11 +20,9 @@
 	};
 </script>
 
-<div class="bg-base-300 bg-slate-300 pb-2 shadow-md">
-	<div class="flex-1">
-		<a href="/" class="normal-case text-xl">ReeseP dot com</a>
-	</div>
-	<div class="flex flex-row justify-end content-between">
+<div class="bg-base-300 bg-slate-300 pb-2 pt-2 shadow-md flex flex-row">
+	<a href="/" class="normal-case text-xl mr-auto">ReeseP dot com</a>
+	<div class="flex-0 content-between">
 		<button
 			on:click={toggleMenuVisibility}
 			tabindex="0"
@@ -55,7 +55,9 @@
 				<MenuItem url="/contact" text="Contact" />
 				<MenuItem url="/projects" text="Projects" />
 				<MenuItem url="/resume" text="Resume" />
+				{#if !user}
 				<MenuItem url="/login" text="Login" />
+				{/if}
 			</ul>
 		{/if}
 	</div>
