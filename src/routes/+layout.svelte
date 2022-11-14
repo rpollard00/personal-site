@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
+	import type { PageData } from './$types'
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 	
 	import '../app.postcss';
-
+	export let data: PageData;
 	let selectedTheme = 0;
 	const themes = ['light', 'dark', 'retro', 'cyberpunk'];
 
@@ -24,8 +25,12 @@
 
 <div data-theme={themes[selectedTheme]} class="app flex flex-col  h-screen">
 	<header>
-		<Navbar on:changeTheme={setTheme} />
+		<Navbar on:changeTheme={setTheme} user={data.user}/>
 	</header>
+
+	{#if data.user }
+	Hello { data.user.email }
+	{/if}
 
 	<main class="flex flex-col grow">
 		<slot />
