@@ -2,12 +2,11 @@ import { error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async (event) => {
-  const { request, locals }: any = event
-  const logout = await locals.pocketbase.authStore.clear();  
+	const { request, locals }: any = event;
+	const logout = await locals.pocketbase.authStore.clear();
 
-  return new Response("Logout successful")
-}
-
+	return new Response('Logout successful');
+};
 
 // export const actions: Actions = {
 //   default: async (event) => {
@@ -27,7 +26,7 @@ export const POST: RequestHandler = async (event) => {
 //       }
 
 //       return { success: true }
-//       // return new Response(JSON.stringify(body), { 
+//       // return new Response(JSON.stringify(body), {
 //       //   headers: { 'Content-Type': 'application/json' }
 //       // })
 //     } catch (error: any) {
@@ -38,9 +37,9 @@ export const POST: RequestHandler = async (event) => {
 
 //       return new Response("Unknown error")
 //     }
-    
+
 //     //console.log('response to login request', response)
-  
+
 //   }
 
 // }
