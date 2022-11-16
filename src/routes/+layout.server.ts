@@ -1,6 +1,4 @@
-import type { PageLoad } from "./$types"
-
-export const load: PageLoad = ({ locals }: any) => {
+export const load = ({ locals }: any) => {
   if (locals.user) {
     return {
       user: locals.user

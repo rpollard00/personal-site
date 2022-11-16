@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import { clickOutside } from '$lib/utilities/clickOutside';
 	import { createEventDispatcher } from 'svelte';
 	import MenuItem from './MenuItem.svelte';
 	import { fade } from 'svelte/transition';	
 	import { dataset_dev } from 'svelte/internal';
-	export let user;
+	export let user: any;
 
 	const dispatch = createEventDispatcher();
 
