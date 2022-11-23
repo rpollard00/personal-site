@@ -23,5 +23,5 @@
 		</form>
 	</div>
 {:else}
-	<button on:click={() => fetch('/logout')}>Logout</button>
+	<button on:click={() => goto('/')}>Logout</button>
 {/if}

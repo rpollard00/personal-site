@@ -1,6 +1,7 @@
 <script lang="ts">
-  export let url: string;
-  export let text: string;
+	export let href: string;
+	let classes: string;
+	export { classes as class };
 </script>
 
-<li><a href={url}>{text}</a></li>
+<li class={classes}><a {href}><slot /></a></li>
