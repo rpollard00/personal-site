@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { clickOutside } from '$lib/utilities/clickOutside';
 	import { createEventDispatcher } from 'svelte';
-	import MenuItem from './MenuItem.svelte';
-	import { fade } from 'svelte/transition';	
+	import Menu from './Menu.svelte';
+	import { fade } from 'svelte/transition';
 	import { dataset_dev } from 'svelte/internal';
 	export let user: any;
 
@@ -35,7 +35,8 @@
 					stroke="currentColor"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
-					><path style="stroke:white"
+					><path
+						style="stroke:white"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						stroke-width="2"
@@ -46,19 +47,22 @@
 			</div>
 		</button>
 		{#if menuVisible}
-			<ul
+			<div class="flex-none">
+				<Menu {menuVisible} {toggleMenuVisibility} />
+			</div>
+			<!-- <ul
 				transition:fade
 				class="fixed top-[4rem] right-2 z-10 mt-3 p-2 shadow-xl bg-slate-600 rounded-md w-52 text-slate-100"
 			>
-				<MenuItem url="/about" text="About Me"/>
+				<MenuItem url="/about" text="About Me" />
 				<MenuItem url="/blog" text="Blog" />
 				<MenuItem url="/contact" text="Contact" />
 				<MenuItem url="/projects" text="Projects" />
 				<MenuItem url="/resume" text="Resume" />
 				{#if !user}
-				<MenuItem url="/login" text="Login" />
+					<MenuItem url="/login" text="Login" />
 				{/if}
-			</ul>
+			</ul> -->
 		{/if}
 	</div>
 </div>
